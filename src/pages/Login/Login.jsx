@@ -225,7 +225,7 @@ const LoadingIcon = styled(Loader2)`
   }
 `;
 
-export function LoginPage({ onLogin }) {
+export function Login({ onLogin }) {
   const [activeTab, setActiveTab] = useState('login');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

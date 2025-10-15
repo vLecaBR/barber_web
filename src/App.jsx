@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { AppProvider } from './context/AppContext';
 import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
-import { HomePage } from './pages/HomePage';
-import { ServicosPage } from './pages/ServicosPage';
-import { LoginPage } from './pages/LoginPage';
-import { AgendarPage } from './pages/AgendarPage';
-import { AgendamentosPage } from './pages/AgendamentosPage';
-import { ContatoPage } from './pages/ContatoPage';
-import { AdminDashboard } from './pages/AdminDashboard';
+import { Footer } from './Components/Footer';
+import { Home } from './pages/Home/Home';
+import { Servicos } from './pages/Servicos/Servicos';
+import { Login } from './pages/Login/Login';
+import { Agendar } from './pages/Agendar/Agendar';
+import { Agendamentos } from './pages/Agendamentos/Agendamentos';
+import { Contato } from './pages/Contato/Contato';
+import { AdminDashboard } from './pages/ADMIN/AdminDashboard';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
@@ -80,20 +80,20 @@ export default function App() {
         />
 
         <Main>
-          {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
+          {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
           {currentPage === 'servicos' && (
-            <ServicosPage onNavigate={handleNavigate} isLoggedIn={!!user} />
+            <Servicos onNavigate={handleNavigate} isLoggedIn={!!user} />
           )}
-          {currentPage === 'contato' && <ContatoPage />}
-          {currentPage === 'login' && !user && <LoginPage onLogin={handleLogin} />}
+          {currentPage === 'contato' && <Contato />}
+          {currentPage === 'login' && !user && <Login onLogin={handleLogin} />}
           {currentPage === 'agendar' && user && (
-            <AgendarPage
+            <Agendar
               onNavigate={handleNavigate}
               preSelectedServiceId={preSelectedServiceId}
             />
           )}
           {currentPage === 'agendamentos' && user && (
-            <AgendamentosPage onNavigate={handleNavigate} />
+            <Agendamentos onNavigate={handleNavigate} />
           )}
           {currentPage === 'admin' && user && user.role === 'admin' && <AdminDashboard />}
         </Main>

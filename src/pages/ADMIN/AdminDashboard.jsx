@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Plus, Edit, Trash2, Users, Calendar, Scissors, Save, X } from 'lucide-react';
-import { Button } from '../components/Button';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/Card';
-import { Input, Label, Textarea } from '../components/Input';
-import { Modal } from '../components/Modal';
-import { useAppContext } from '../context/AppContext';
+import { Button } from '../../Components/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '../../Components/Card';
+import { Input, Label, Textarea } from '../../Components/Input';
+import { Modal } from '../../Components/Modal';
+import { useAppContext } from '../../context/AppContext';
 import {
   criarServico,
   atualizarServico,
@@ -14,7 +14,7 @@ import {
   atualizarBarbeiro,
   deletarBarbeiro,
   getAllAgendamentos,
-} from '../services/api';
+} from '../../services/api';
 
 const Container = styled.div`
   min-height: 100vh;

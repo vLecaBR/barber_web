@@ -173,7 +173,7 @@ const SuccessMessage = styled.div`
   }
 `;
 
-export function AgendarPage({ onNavigate, preSelectedServiceId }) {
+export function Agendar({ onNavigate, preSelectedServiceId }) {
   const { servicos, barbeiros } = useAppContext();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);

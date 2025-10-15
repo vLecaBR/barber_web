@@ -308,7 +308,7 @@ const FeatureCard = styled.div`
   }
 `;
 
-export function HomePage({ onNavigate }) {
+export function Home({ onNavigate }) {
   const features = [
     {
       icon: Award,

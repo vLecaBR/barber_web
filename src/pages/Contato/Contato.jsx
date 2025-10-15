@@ -192,7 +192,7 @@ const WhatsAppButton = styled(Button)`
   }
 `;
 
-export function ContatoPage() {
+export function Contato() {
   const whatsappNumber = '5511987654321';
   const whatsappMessage = 'Olá! Gostaria de agendar um horário.';
 

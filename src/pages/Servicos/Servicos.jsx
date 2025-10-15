@@ -96,7 +96,7 @@ const EmptyState = styled.div`
   }
 `;
 
-export function ServicosPage({ onNavigate, isLoggedIn }) {
+export function Servicos({ onNavigate, isLoggedIn }) {
   const { servicos } = useAppContext();
 
   function handleAgendar(servicoId) {

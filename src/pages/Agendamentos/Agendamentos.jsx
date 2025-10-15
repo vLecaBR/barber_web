@@ -313,7 +313,7 @@ const EmptyState = styled.div`
   }
 `;
 
-export function AgendamentosPage({ onNavigate }) {
+export function Agendamentos({ onNavigate }) {
   const [activeTab, setActiveTab] = useState('proximos');
   const [agendamentos, setAgendamentos] = useState([]);
   const [loading, setLoading] = useState(true);
