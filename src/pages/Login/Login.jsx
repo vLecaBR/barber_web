@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Loader2, Scissors } from 'lucide-react';
-import { Button } from '../components/Button';
-import { login, cadastro } from '../services/api';
+import { Button } from '../../Components/Button';
+import { login, cadastro } from '../../services/api';
 
 const Container = styled.div`
   min-height: 100vh;

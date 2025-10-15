@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Calendar, Clock, User, Loader2, X, CheckCircle, XCircle } from 'lucide-react';
-import { Button } from '../components/Button';
-import { Card } from '../components/Card';
-import { Badge } from '../components/Badge';
-import { Modal } from '../components/Modal';
-import { getAgendamentos, cancelarAgendamento } from '../services/api';
+import { Button } from '../../Components/Button';
+import { Card } from '../../Components/Card';
+import { Badge } from '../../Components/Badge';
+import { Modal } from '../../Components/Modal';
+import { getAgendamentos, cancelarAgendamento } from '../../services/api';
 
 const Container = styled.div`
   min-height: 100vh;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AppProvider } from './context/AppContext';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './Components/NavBar';
 import { Footer } from './Components/Footer';
 import { Home } from './pages/Home/Home';
 import { Servicos } from './pages/Servicos/Servicos';

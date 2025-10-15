@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Calendar as CalendarIcon, Loader2, Check, Clock, User } from 'lucide-react';
-import { Button } from '../components/Button';
-import { Label, Select, Textarea } from '../components/Input';
-import { Card, CardContent } from '../components/Card';
-import { getHorariosDisponiveis, criarAgendamento } from '../services/api';
-import { useAppContext } from '../context/AppContext';
+import { Button } from '../../Components/Button';
+import { Label, Select, Textarea } from '../../Components/Input';
+import { Card, CardContent } from '../../Components/Card';
+import { getHorariosDisponiveis, criarAgendamento } from '../../services/api';
+import { useAppContext } from '../../context/AppContext';
 
 const Container = styled.div`
   min-height: 100vh;

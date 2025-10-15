@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
-import { Button } from '../components/Button';
-import { Card } from '../components/Card';
+import { Button } from '../../Components/Button';
+import { Card } from '../../Components/Card';
 
 const Container = styled.div`
   min-height: 100vh;

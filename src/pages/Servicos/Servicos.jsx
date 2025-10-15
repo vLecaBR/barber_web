@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ServiceCard } from '../components/ServiceCard';
-import { useAppContext } from '../context/AppContext';
+import { ServiceCard } from '../../Components/ServiceCard';
+import { useAppContext } from '../../context/AppContext';
 
 const Container = styled.div`
   min-height: 100vh;
