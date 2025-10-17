@@ -3,6 +3,8 @@ import { Menu, X, Scissors, User, LogOut } from 'lucide-react';
 import styled from 'styled-components';
 import { Button } from './Button';
 
+// ---------------- Styled Components ---------------- //
+
 const Nav = styled.nav`
   position: sticky;
   top: 0;
@@ -82,7 +84,7 @@ const LogoText = styled.div`
 
   .sub {
     font-size: 0.75rem;
-    color: ${props => props.theme.colors.primary};
+    color: ${({ theme }) => theme?.colors?.primary || '#d4af37'};
     letter-spacing: 0.2em;
     text-transform: uppercase;
   }
@@ -103,7 +105,8 @@ const NavItem = styled.button`
   padding: 0.5rem 1rem;
   background: none;
   border: none;
-  color: ${props => props.active ? props.theme.colors.primary : props.theme.colors.gray300};
+  color: ${({ active, theme }) =>
+    active ? theme?.colors?.primary || '#d4af37' : theme?.colors?.gray300 || '#b3b3b3'};
   transition: color 0.3s;
   cursor: pointer;
 
@@ -118,13 +121,18 @@ const NavItem = styled.button`
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, transparent, ${props => props.theme.colors.primary}, transparent);
-    opacity: ${props => props.active ? 1 : 0};
+    background: linear-gradient(
+      to right,
+      transparent,
+      ${({ theme }) => theme?.colors?.primary || '#d4af37'},
+      transparent
+    );
+    opacity: ${({ active }) => (active ? 1 : 0)};
     transition: opacity 0.3s;
   }
 
   &:hover::after {
-    opacity: ${props => props.active ? 1 : 0.5};
+    opacity: ${({ active }) => (active ? 1 : 0.5)};
   }
 `;
 
@@ -171,7 +179,7 @@ const UserDetails = styled.div`
 
   .role {
     font-size: 0.75rem;
-    color: ${props => props.theme.colors.gray400};
+    color: ${({ theme }) => theme?.colors?.gray400 || '#8c8c8c'};
   }
 `;
 
@@ -184,7 +192,7 @@ const MobileMenuButton = styled.button`
   transition: color 0.3s;
 
   &:hover {
-    color: ${props => props.theme.colors.primary};
+    color: ${({ theme }) => theme?.colors?.primary || '#d4af37'};
   }
 
   @media (min-width: 768px) {
@@ -211,10 +219,13 @@ const MobileNavItem = styled.button`
   width: 100%;
   text-align: left;
   padding: 1rem 1.5rem;
-  background: ${props => props.active ? 'rgba(212, 175, 55, 0.1)' : 'transparent'};
+  background: ${({ active }) => (active ? 'rgba(212, 175, 55, 0.1)' : 'transparent')};
   border: none;
-  border-left: 4px solid ${props => props.active ? props.theme.colors.primary : 'transparent'};
-  color: ${props => props.active ? props.theme.colors.primary : props.theme.colors.gray300};
+  border-left: 4px solid
+    ${({ active, theme }) =>
+      active ? theme?.colors?.primary || '#d4af37' : 'transparent'};
+  color: ${({ active, theme }) =>
+    active ? theme?.colors?.primary || '#d4af37' : theme?.colors?.gray300 || '#b3b3b3'};
   transition: all 0.3s;
   cursor: pointer;
 
@@ -237,6 +248,8 @@ const MobileUserSection = styled.div`
 const LogoutButton = styled(Button)`
   padding: 0.5rem;
 `;
+
+// ---------------- Component ---------------- //
 
 export function Navbar({ currentPage, onNavigate, user, onLogout }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -298,11 +311,7 @@ export function Navbar({ currentPage, onNavigate, user, onLogout }) {
                     <span className="role">Cliente Premium</span>
                   </UserDetails>
                 </UserInfo>
-                <LogoutButton
-                  variant="ghost"
-                  size="sm"
-                  onClick={onLogout}
-                >
+                <LogoutButton variant="ghost" size="sm" onClick={onLogout}>
                   <LogOut />
                 </LogoutButton>
               </UserSection>
@@ -345,7 +354,13 @@ export function Navbar({ currentPage, onNavigate, user, onLogout }) {
                     setMobileMenuOpen(false);
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                    }}
+                  >
                     <LogOut style={{ width: '1.25rem', height: '1.25rem' }} />
                     <span>Sair da Conta</span>
                   </div>

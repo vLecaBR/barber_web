@@ -1,17 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-  * {
+   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  html, body, #root {
+    width: 100%;
+    height: 100%;
   }
 
   body {
@@ -21,6 +19,15 @@ export const GlobalStyles = createGlobalStyle`
     background: #0a0a0a;
     color: #ffffff;
     line-height: 1.5;
+    overflow-x: hidden; /* 👈 evita scroll horizontal */
+    display: flex;
+    flex-direction: column;
+  }
+
+  #root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   button {

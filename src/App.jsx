@@ -1,3 +1,4 @@
+// src/App.jsx
 import { useState, useEffect } from 'react';
 import { AppProvider } from './context/AppContext';
 import { Navbar } from './Components/NavBar';
@@ -10,12 +11,14 @@ import { Agendamentos } from './pages/Agendamentos/Agendamentos';
 import { Contato } from './pages/Contato/Contato';
 import { AdminDashboard } from './pages/ADMIN/AdminDashboard';
 import styled from 'styled-components';
+import {GlobalStyles, theme } from './styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
 
 const AppContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #0a0a0a;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 const Main = styled.main`
@@ -61,7 +64,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (!user && (currentPage === 'agendar' || currentPage === 'agendamentos' || currentPage === 'admin')) {
+    if (
+      !user &&
+      (currentPage === 'agendar' ||
+        currentPage === 'agendamentos' ||
+        currentPage === 'admin')
+    ) {
       setCurrentPage('login');
     }
     if (user && currentPage === 'admin' && user.role !== 'admin') {
@@ -70,36 +78,43 @@ export default function App() {
   }, [user, currentPage]);
 
   return (
-    <AppProvider>
-      <AppContainer>
-        <Navbar
-          currentPage={currentPage}
-          onNavigate={handleNavigate}
-          user={user}
-          onLogout={handleLogout}
-        />
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <AppProvider>
+        <AppContainer>
+          <Navbar
+            currentPage={currentPage}
+            onNavigate={handleNavigate}
+            user={user}
+            onLogout={handleLogout}
+          />
 
-        <Main>
-          {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
-          {currentPage === 'servicos' && (
-            <Servicos onNavigate={handleNavigate} isLoggedIn={!!user} />
-          )}
-          {currentPage === 'contato' && <Contato />}
-          {currentPage === 'login' && !user && <Login onLogin={handleLogin} />}
-          {currentPage === 'agendar' && user && (
-            <Agendar
-              onNavigate={handleNavigate}
-              preSelectedServiceId={preSelectedServiceId}
-            />
-          )}
-          {currentPage === 'agendamentos' && user && (
-            <Agendamentos onNavigate={handleNavigate} />
-          )}
-          {currentPage === 'admin' && user && user.role === 'admin' && <AdminDashboard />}
-        </Main>
+          <Main>
+            {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
+            {currentPage === 'servicos' && (
+              <Servicos onNavigate={handleNavigate} isLoggedIn={!!user} />
+            )}
+            {currentPage === 'contato' && <Contato />}
+            {currentPage === 'login' && !user && (
+              <Login onLogin={handleLogin} />
+            )}
+            {currentPage === 'agendar' && user && (
+              <Agendar
+                onNavigate={handleNavigate}
+                preSelectedServiceId={preSelectedServiceId}
+              />
+            )}
+            {currentPage === 'agendamentos' && user && (
+              <Agendamentos onNavigate={handleNavigate} />
+            )}
+            {currentPage === 'admin' &&
+              user &&
+              user.role === 'admin' && <AdminDashboard />}
+          </Main>
 
-        <Footer onNavigate={handleNavigate} />
-      </AppContainer>
-    </AppProvider>
+          <Footer onNavigate={handleNavigate} />
+        </AppContainer>
+      </AppProvider>
+    </ThemeProvider>
   );
 }
