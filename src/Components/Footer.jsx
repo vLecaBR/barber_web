@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import { MapPin, Phone, Mail, Instagram, Facebook, Clock, Scissors } from 'lucide-react';
 
 const FooterContainer = styled.footer`
-  position: relative;
   background: linear-gradient(to bottom, #0a0a0a, #000);
   border-top: 1px solid rgba(212, 175, 55, 0.2);
+  width: 100%;
   margin-top: auto;
-  overflow: hidden;
+  position: relative;
+  z-index: 1;
 `;
+
 
 const DecorativeBackground = styled.div`
   position: absolute;
